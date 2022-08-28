@@ -2,21 +2,21 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 interface viewInitialStateTypes {
-  viewAll : boolean
+  viewAll: boolean
   favorites: boolean
-  viewSelected:boolean
-  myLocal : boolean
+  viewSelected: boolean
+  myLocal: boolean
 }
 
-const initialState:viewInitialStateTypes = {
-  viewAll : false,
+const initialState: viewInitialStateTypes = {
+  viewAll: false,
   favorites: false,
-  viewSelected:false,
-  myLocal : true
+  viewSelected: false,
+  myLocal: true
 }
 
 export const viewSlice = createSlice({
-  name:'view',
+  name: 'view',
   initialState,
   reducers: {
     myLocalHandler(state) {
@@ -48,4 +48,4 @@ export const viewSlice = createSlice({
 })
 
 export const viewReducer = viewSlice.reducer;
-export const {myLocalHandler,viewAllHandler,favoritesHandler,viewSelectedOneHandler} = viewSlice.actions
+export const { myLocalHandler, viewAllHandler, favoritesHandler, viewSelectedOneHandler } = viewSlice.actions

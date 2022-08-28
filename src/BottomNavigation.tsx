@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faLocationDot,faMapLocationDot, faStar, } from '@fortawesome/free-solid-svg-icons'
-import { useAppDispatch, useAppSelector } from './store/store';
-import { favoritesHandler, myLocalHandler, viewAllHandler } from './store/slice/ViewSlice';
+import { useAppDispatch } from './store/store';
+import { favoritesHandler, viewAllHandler } from './store/slice/ViewSlice';
 
 interface BottomNavigationProps {
   setAppStart: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const BottomNavigation = ({setAppStart}:BottomNavigationProps) => {
-  const viewstate = useAppSelector(state => state.view)
   const dispatch = useAppDispatch()
-  const myLocalClickHandler = () => {
+
+  const myLocalClickHandler = useCallback(() => {
     setAppStart(false)
-    
-  }
-  const viewAllClickHandler = () => {
+  },[])
+
+  const viewAllClickHandler = useCallback(() => {
     dispatch(viewAllHandler())
-  }
-  const favoritesClickHandler = () => {
+  },[])
+
+  const favoritesClickHandler = useCallback(() => {
     dispatch(favoritesHandler())
-  }
+  },[])
+  
   return (
     <>
       <div className='fixed bottom-0 w-full flex justify-between items-center px-4  border-2 border-transparent shadow-lg border-t-gray-400/40 h-16'>

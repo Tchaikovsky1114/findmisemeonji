@@ -6,8 +6,8 @@ import { viewReducer } from "./slice/ViewSlice"
 
 export const store = configureStore({
   reducer: {
-    air:airReducer,
-    view:viewReducer
+    air: airReducer,
+    view: viewReducer
   }
 })
 
